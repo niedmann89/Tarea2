@@ -36,3 +36,17 @@ fi
 # 		if [ $var -eq  1]
 
 # Pregunta 3
+n=0
+while [ $n -le 15 ]
+		do
+				n=$(exp $n + 1)
+				m =$(exp 4 - 4/ 2*$n-1)
+				if [ $n -eq 15 ]
+				then
+						echo "$m"
+						echo "$n"
+				else
+						continue
+				fi
+		done
+echo "hola"
