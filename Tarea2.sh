@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Pregunta N°1
+echo "Pregunta N°1"
 file1=/etc/hostname
 if [ -e $file1 ]
 then
@@ -28,24 +28,20 @@ fi
 # la idea es dejar un loop donde por defecto vaya revisando si el numero
 # es par o impar ysumar o restar la fraccion correspondiente al numero n
 #Usar el mismo loop con 100 y con 1000
- echo "10 iteraciones"
- cont=1
- pi=4
- echo "$pi"
+ echo "Pregunta N°2"
+ cont=1 #Se definen las variables del contador
+ pi=4 #Se define pi = 4 para el valor 0 del contador
+
  while [ $cont -le 1000 ]
 			do
-				pi=$(echo "scale=20; $pi + (4 * (-1)^2$cont) / (2 * $cont + 1)" | bc)
+				pi=$(echo "scale=5; $pi + (4 * (-1)^2$cont) / (2 * $cont + 1)" | bc)
 				if [ $cont = 10 ]
  						then
 								echo "pi es $pi con 10 iteraciones"
-				fi
-
-				if [ $cont = 100 ]
+						elif [ $cont = 100 ]
  						then
 								echo "pi es $pi con 100 iteraciones"
-				fi
-
-				if [ $cont = 1000 ]
+						elif [ $cont = 1000 ]
  						then
 								echo "pi es $pi con 1000 iteraciones"
 				fi
@@ -70,7 +66,7 @@ n=0
 # 		done
 # echo "hola"
 
-##Ej 4 primera forma
+echo "Pregunta 4"
 sum=100
 a=0
 b=0
