@@ -67,6 +67,7 @@ n=0
 # echo "hola"
 
 echo "Pregunta 4"
+echo "Ciclo While"
 sum=100
 a=0
 b=0
@@ -83,4 +84,17 @@ b=0
 	done
 
 #usar form
+#cilclo en for
+echo "Ciclo For"
+n=0
+for i in $(seq 1 1 60)
+	do
+	((n= $n + $i ))
+	if [ $n -gt 1000 ]	
+		then
+			echo "n > $i"
+			echo "La suma es $n"
+			break
+	fi	
+done
 
