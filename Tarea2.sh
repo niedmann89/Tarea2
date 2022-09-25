@@ -70,9 +70,6 @@ echo "------------------------------------------------------"
 						elif [ $cont = 400 ]
  						then
 								echo "pi es $pi con 400 iteraciones"
-						elif [ $cont = 400 ]
- 						then
-								echo "pi es $pi con 400 iteraciones"
 						elif [ $cont = 500 ]
  						then
 								echo "pi es $pi con 500 iteraciones"
