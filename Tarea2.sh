@@ -15,56 +15,92 @@ else
 fi # hasta aqui todo correcto
 nombre=$(cat /etc/hostname)
 # Combinar los dos ciclos if
-if [ $nombre = 'niedmannedora' ]
+if [ $nombre = 'niedmannfedora' ]
 		then
 				echo "Tu eres el usuario actual, $nombre"
 		else
-				echo "Este archivo fue escrito en $nombre"
+				echo "Tu no eres el usuario original, tu hostname es $nombre y este archivo fue escrito en niedmannfedora"
 fi
 #Fin de la Pregunta 1
-
-#Pregunta 2
-# # partir con la variable igual a 0
-# la idea es dejar un loop donde por defecto vaya revisando si el numero
-# es par o impar ysumar o restar la fraccion correspondiente al numero n
-#Usar el mismo loop con 100 y con 1000
+echo "------------------------------------------------------"
  echo "Pregunta N°2"
  cont=1 #Se definen las variables del contador
  pi=4 #Se define pi = 4 para el valor 0 del contador
-
+ m=1
  while [ $cont -le 1000 ]
 			do
-				pi=$(echo "scale=5; $pi + (4 * (-1)^2$cont) / (2 * $cont + 1)" | bc)
+				pi=$(echo "scale=8; $pi + (4 * (-1)^2$cont) / (2 * $cont + 1)" | bc)
 				if [ $cont = 10 ]
  						then
 								echo "pi es $pi con 10 iteraciones"
+						elif [ $cont = 20 ]
+						then
+								echo "pi es $pi con 20 iteraciones"
+						elif [ $cont = 30 ]
+						then
+								echo "pi es $pi con 30 iteraciones"
+						elif [ $cont = 40 ]
+						then
+								echo "pi es $pi con 40 iteraciones"
+						elif [ $cont = 50 ]
+						then
+								echo "pi es $pi con 50 iteraciones"
+						elif [ $cont = 60 ]
+						then
+								echo "pi es $pi con 60 iteraciones"
+						elif [ $cont = 70 ]
+						then
+								echo "pi es $pi con 70 iteraciones"
+						elif [ $cont = 80 ]
+						then
+								echo "pi es $pi con 80 iteraciones"
+						elif [ $cont = 90 ]
+						then
+								echo "pi es $pi con 90 iteraciones"
 						elif [ $cont = 100 ]
  						then
 								echo "pi es $pi con 100 iteraciones"
+								p100=$pi
+						elif [ $cont = 200 ]
+ 						then
+								echo "pi es $pi con 200 iteraciones"
+						elif [ $cont = 300 ]
+ 						then
+								echo "pi es $pi con 300 iteraciones"
+						elif [ $cont = 400 ]
+ 						then
+								echo "pi es $pi con 400 iteraciones"
+						elif [ $cont = 400 ]
+ 						then
+								echo "pi es $pi con 400 iteraciones"
+						elif [ $cont = 500 ]
+ 						then
+								echo "pi es $pi con 500 iteraciones"
+						elif [ $cont = 600 ]
+ 						then
+								echo "pi es $pi con 600 iteraciones"
+						elif [ $cont = 700 ]
+ 						then
+								echo "pi es $pi con 800 iteraciones"
+						elif [ $cont = 800 ]
+ 						then
+								echo "pi es $pi con 900 iteraciones"
 						elif [ $cont = 1000 ]
  						then
 								echo "pi es $pi con 1000 iteraciones"
+								pi1000=$pi
 				fi
 
 				((cont=$cont+1))
  		done
-# 		if [ $var -eq  1]
-
-# Pregunta 3
-n=0
-# while [ $n -le 15 ]
-# 		do
-# 				n=$(exp $n + 1)
-# 				m =$(exp 4 - 4/ 2*$n-1)
-# 				if [ $n -eq 15 ]
-# 				then
-# 						echo "$m"
-# 						echo "$n"
-# 				else
-# 						continue
-# 				fi
-# 		done
-# echo "hola"
+pireal=3.14159265
+error1=$(echo "scale=8; (($p100-$pireal) / $pireal) * 100" | bc)
+error2=$(echo "scale=8; 100*(($pi1000-$pireal) / $pireal)" | bc)
+echo "------------------------------------------------------"
+echo " El error porcentual despues de 100 iteraciones es 0$error1 %"
+echo " El error porcentual despues de 1000 iteraciones es 0$error2 %"
+echo "------------------------------------------------------"
+#Pregunta 4
 
 echo "Pregunta 4"
 echo "Ciclo While"
@@ -83,7 +119,6 @@ b=0
 		fi
 	done
 
-#usar form
 #cilclo en for
 echo "Ciclo For"
 n=0
