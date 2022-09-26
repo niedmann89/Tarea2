@@ -12,10 +12,9 @@ then
 		fi
 else
 		echo "$file1 no existe"
-fi # hasta aqui todo correcto
+fi 
 nombre=$(cat /etc/hostname)
-# Combinar los dos ciclos if
-if [ $nombre = 'niedmannfedora' ]
+if [ $nombre = 'niedmannfedora' ] #hostname no proporciona el nombre de usuario como whoami, pero es lo que se pidió en la instrucción de la tarea.
 		then
 				echo "Tu eres el usuario actual, $nombre"
 		else
@@ -26,7 +25,6 @@ echo "------------------------------------------------------"
  echo "Pregunta N°2"
  cont=1 #Se definen las variables del contador
  pi=4 #Se define pi = 4 para el valor 0 del contador
- m=1
  while [ $cont -le 1000 ];do
 		pi=$(echo "scale=13; $pi + (4 * (-1)^2$cont) / (2 * $cont + 1)" | bc)
 				if [[ $cont = *0 ]] && [[ $cont -lt 99 ]];then
@@ -55,18 +53,18 @@ n=$(date +%d)
 m=$(date +%B)
 if [ $a -gt 31 ];then
 				echo "Revisar error en el archivo Error.log"
-				echo "Ingresaste el numero $a" > Error.log
-				echo "Ingresa un numero válido: Entre el 1 y el 31" >> Error.log
+				echo "Ingresaste el número $a" > Error.log
+				echo "Ingresa un número válido: Entre el 1 y el 31" >> Error.log
 				break
 		elif [ $a = $n ];then
-				echo "los numeros son iguales"
+				echo "Los números coinciden"
 				echo "Hoy es $a de $m"
 
 		elif [ $a -lt $n ];then
-				echo "el numero $a es menor al numero $n"
+				echo "El número $a es menor al número $n"
 				echo "Han pasado $(($n - $a)) dias desde el $a de $m"
 		elif [ $a -gt $n ];then
-				echo " el numero $a es mayor al numero $n"
+				echo "El número $a es mayor al número $n"
 				echo "Faltan $(($a - $n)) dias para el $a de $m"
 				fi
 #Fin pregunta 3
@@ -103,4 +101,4 @@ for i in $(seq 1 1 60)
 			break
 	fi	
 done
-#Fin pregunta 3
+#Fin 
