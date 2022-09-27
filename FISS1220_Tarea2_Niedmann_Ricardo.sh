@@ -51,10 +51,12 @@ echo "Pregunta 3"
 a=$1
 n=$(date +%d)
 m=$(date +%B)
-if [ $a -gt 31 ];then
-				echo "Revisar error en el archivo Error.log"
-				echo "Ingresaste el número $a" > Error.log
-				echo "Ingresa un número válido: Entre el 1 y el 31" >> Error.log
+
+exec 2>Tarea2.log
+
+if [ $a -gt 31 ] || [ $a -le 0 ];then
+				echo "Ingresaste el número $a" >> Tarea2.log
+				echo "Ingresa un número válido: Entre el 1 y el 31" >> Tarea2.log
 				break
 		elif [ $a = $n ];then
 				echo "Los números coinciden"
@@ -66,7 +68,11 @@ if [ $a -gt 31 ];then
 		elif [ $a -gt $n ];then
 				echo "El número $a es mayor al número $n"
 				echo "Faltan $(($a - $n)) dias para el $a de $m"
-				fi
+		fi
+if [ -s Tarea2.log ];then
+		echo "Revisa tu error en el archivo Tarea2.log"
+		fi
+
 #Fin pregunta 3
 echo "------------------------------------------------------"
 #Pregunta 4
@@ -88,7 +94,6 @@ b=0
 		fi
 	done
 
-#cilclo en for
 echo "Ciclo For"
 n=0
 for i in $(seq 1 1 60)
@@ -99,6 +104,7 @@ for i in $(seq 1 1 60)
 			echo "n > $i"
 			echo "La suma es $n"
 			break
+
 	fi	
 done
 #Fin 
