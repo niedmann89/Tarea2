@@ -27,72 +27,24 @@ echo "------------------------------------------------------"
  cont=1 #Se definen las variables del contador
  pi=4 #Se define pi = 4 para el valor 0 del contador
  m=1
- while [ $cont -le 1000 ]
-			do
-				pi=$(echo "scale=8; $pi + (4 * (-1)^2$cont) / (2 * $cont + 1)" | bc)
-				if [ $cont = 10 ]
- 						then
-								echo "pi es $pi con 10 iteraciones"
-						elif [ $cont = 20 ]
-						then
-								echo "pi es $pi con 20 iteraciones"
-						elif [ $cont = 30 ]
-						then
-								echo "pi es $pi con 30 iteraciones"
-						elif [ $cont = 40 ]
-						then
-								echo "pi es $pi con 40 iteraciones"
-						elif [ $cont = 50 ]
-						then
-								echo "pi es $pi con 50 iteraciones"
-						elif [ $cont = 60 ]
-						then
-								echo "pi es $pi con 60 iteraciones"
-						elif [ $cont = 70 ]
-						then
-								echo "pi es $pi con 70 iteraciones"
-						elif [ $cont = 80 ]
-						then
-								echo "pi es $pi con 80 iteraciones"
-						elif [ $cont = 90 ]
-						then
-								echo "pi es $pi con 90 iteraciones"
-						elif [ $cont = 100 ]
- 						then
-								echo "pi es $pi con 100 iteraciones"
+ while [ $cont -le 1000 ];do
+		pi=$(echo "scale=13; $pi + (4 * (-1)^2$cont) / (2 * $cont + 1)" | bc)
+				if [[ $cont = *0 ]] && [[ $cont -lt 99 ]];then
+						echo "pi es $pi con $cont iteraciones"
+						elif [[ $cont = *00 ]] && [[ $cont -lt 999 ]];then
+								if [[ $cont = 100 ]];then
 								p100=$pi
-						elif [ $cont = 200 ]
- 						then
-								echo "pi es $pi con 200 iteraciones"
-						elif [ $cont = 300 ]
- 						then
-								echo "pi es $pi con 300 iteraciones"
-						elif [ $cont = 400 ]
- 						then
-								echo "pi es $pi con 400 iteraciones"
-						elif [ $cont = 500 ]
- 						then
-								echo "pi es $pi con 500 iteraciones"
-						elif [ $cont = 600 ]
- 						then
-								echo "pi es $pi con 600 iteraciones"
-						elif [ $cont = 700 ]
- 						then
-								echo "pi es $pi con 800 iteraciones"
-						elif [ $cont = 800 ]
- 						then
-								echo "pi es $pi con 900 iteraciones"
-						elif [ $cont = 1000 ]
- 						then
-								echo "pi es $pi con 1000 iteraciones"
+								fi
+							echo "pi es $pi con $cont iteraciones"
+						elif [ $cont = 1000 ];then
+								echo "pi es $pi con $cont iteraciones"
 								pi1000=$pi
 				fi
-
 				((cont=$cont+1))
- 		done
-pireal=3.14159265
-error1=$(echo "scale=8; (($p100-$pireal) / $pireal) * 100" | bc)
-error2=$(echo "scale=8; 100*(($pi1000-$pireal) / $pireal)" | bc)
+done
+pireal=3.1415926535897
+error1=$(echo "scale=13; (($p100-$pireal) / $pireal) * 100" | bc)
+error2=$(echo "scale=13; 100*(($pi1000-$pireal) / $pireal)" | bc)
 echo "------------------------------------------------------"
 echo " El error porcentual despues de 100 iteraciones es 0$error1 %"
 echo " El error porcentual despues de 1000 iteraciones es 0$error2 %"
